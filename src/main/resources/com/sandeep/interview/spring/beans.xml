@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <aop:aspectj-autoproxy/>
+
+    <bean id="address" class="com.sandeep.interview.samples.entity.Address" scope="singleton"/>
+
+    <bean id="person" class="com.sandeep.interview.samples.entity.Person" scope="singleton"/>
+
+    <bean id="person1" class="com.sandeep.interview.samples.entity.Person" scope="singleton"><!--
+        <property name="firstName" value="Sandeep"/>
+        <property name="lastName" value="m"/>-->
+    </bean>
+
+    <bean id="student" class="com.sandeep.interview.samples.entity.Student">
+        <property name="name" value="Sandeep"/>
+        <property name="age" value="32"/>
+    </bean>
+
+    <bean id="aspect" class="com.sandeep.interview.samples.LoggerAspect"/>
+
+</beans>

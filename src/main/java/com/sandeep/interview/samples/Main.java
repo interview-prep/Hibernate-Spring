@@ -1,27 +1,61 @@
 package com.sandeep.interview.samples;
 
+import com.sandeep.interview.samples.entity.Address;
 import com.sandeep.interview.samples.entity.Person;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
  * Created by SMALA on 7/31/2016.
  */
-public class Main {
+public class Main{
     private static final Logger LOGGER = Logger.getLogger("Hibernate-Tutorial");
 
     public static void main(String[] args) {
-        Main main = new Main();
-        main.run();
+        ApplicationContext context = new ClassPathXmlApplicationContext("classpath:com/sandeep/interview/spring/beans.xml");
+        Person person = (Person) context.getBean("person");
+        Address address= (Address) context.getBean("address");
+        Address address1= (Address) context.getBean("address");
+        person.setFirstName("sandeep");
+        person.setLastName("M");
+        person.setAddress(address);
+        System.out.println(person.getFirstName());
+        System.out.println(person.getLastName());
+        System.out.println(person.getClass().hashCode());
+        Person person1 = (Person) context.getBean("person1");
+        person1.setFirstName("sandeep1");
+        person1.setAddress(address1);
+        System.out.println(person1.getFirstName());
+        System.out.println(person1.getLastName());
+        System.out.println(person1.getAddress().getZipCode());
+//        System.out.println(Person.getCountParent());
+//        System.out.println(Address.getCountChild());
+        System.out.println(person1.getClass().hashCode());
+
+        // singleton result
+        /*sandeep
+                M
+        hash code : 1879034789
+        sandeep
+                M
+        hash code : 1879034789*/
+
+        //protype result
+        /*sandeep
+          M
+        hash code : 1879034789
+        null
+        null
+        hash code : 1879034789*/
     }
 
-    public void run() {
+
+    /*public void run() {
         SessionFactory sessionFactory = null;
         Session session = null;
         try {
@@ -45,5 +79,5 @@ public class Main {
                 sessionFactory.close();
             }
         }
-    }
+    }*/
 }

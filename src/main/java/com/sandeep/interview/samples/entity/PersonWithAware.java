@@ -8,14 +8,14 @@ import org.springframework.context.ApplicationContextAware;
 /**
  * Created by SMALA on 7/31/2016.
  */
-public class Person {
+public class PersonWithAware implements ApplicationContextAware, BeanNameAware {
     private Long id;
     private String firstName;
     private String lastName;
     private ApplicationContext context = null;
     private static int countParent = 0;
 
-    public Person() {
+    public PersonWithAware() {
         countParent++;
         System.out.println(countParent);
     }
@@ -31,7 +31,7 @@ public class Person {
     }
 
     public static void setCountParent(int countParent) {
-        Person.countParent = countParent;
+        PersonWithAware.countParent = countParent;
     }
 
     public Long getId() {
@@ -56,6 +56,10 @@ public class Person {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.context = applicationContext;
     }
 
     public void setBeanName(String s) {

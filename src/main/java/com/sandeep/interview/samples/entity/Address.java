@@ -1,12 +1,29 @@
 package com.sandeep.interview.samples.entity;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Created by SMALA on 7/31/2016.
  */
+@Component
 public class Address extends Person {
     private Long streetNumber;
     private String streetName;
     private String ZipCode;
+    private static int countChild=0;
+
+    public Address(){
+        countChild++;
+        System.out.println(countChild);
+    }
+
+    public static int getCountChild() {
+        return countChild;
+    }
+
+    public static void setCountChild(int countChild) {
+        Address.countChild = countChild;
+    }
 
     public Long getStreetNumber() {
         return streetNumber;
