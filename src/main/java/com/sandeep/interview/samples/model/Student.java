@@ -1,4 +1,4 @@
-package com.sandeep.interview.samples.entity;
+package com.sandeep.interview.samples.model;
 
 import org.springframework.beans.factory.annotation.Required;
 

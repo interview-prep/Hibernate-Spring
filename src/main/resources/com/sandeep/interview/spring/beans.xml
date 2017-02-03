@@ -6,16 +6,16 @@
 
     <aop:aspectj-autoproxy/>
 
-    <bean id="address" class="com.sandeep.interview.samples.entity.Address" scope="singleton"/>
+    <bean id="address" class="com.sandeep.interview.samples.model.Address" scope="singleton"/>
 
-    <bean id="person" class="com.sandeep.interview.samples.entity.Person" scope="singleton"/>
+    <bean id="person" class="com.sandeep.interview.samples.model.Person" scope="prototype"/>
 
-    <bean id="person1" class="com.sandeep.interview.samples.entity.Person" scope="singleton"><!--
+    <bean id="person1" class="com.sandeep.interview.samples.model.Person" scope="singleton"><!--
         <property name="firstName" value="Sandeep"/>
         <property name="lastName" value="m"/>-->
     </bean>
 
-    <bean id="student" class="com.sandeep.interview.samples.entity.Student">
+    <bean id="student" class="com.sandeep.interview.samples.model.Student">
         <property name="name" value="Sandeep"/>
         <property name="age" value="32"/>
     </bean>

@@ -1,4 +1,4 @@
-package com.sandeep.interview.samples.entity;
+package com.sandeep.interview.samples.model;
 
 import org.springframework.stereotype.Component;
 
@@ -14,7 +14,7 @@ public class Address extends Person {
 
     public Address(){
         countChild++;
-        System.out.println(countChild);
+        System.out.println(this.getClass() +":" + countChild);
     }
 
     public static int getCountChild() {

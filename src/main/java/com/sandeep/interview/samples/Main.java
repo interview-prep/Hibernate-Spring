@@ -1,11 +1,8 @@
 package com.sandeep.interview.samples;
 
-import com.sandeep.interview.samples.entity.Address;
-import com.sandeep.interview.samples.entity.Person;
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.BeanNameAware;
+import com.sandeep.interview.samples.model.Address;
+import com.sandeep.interview.samples.model.Person;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.logging.Logger;
@@ -21,13 +18,20 @@ public class Main{
         Person person = (Person) context.getBean("person");
         Address address= (Address) context.getBean("address");
         Address address1= (Address) context.getBean("address");
-        person.setFirstName("sandeep");
+        Person person1 = (Person) context.getBean("person");
+        System.out.println("p1:"+ person.hashCode());
+        System.out.println("p2:"+ person1.hashCode());
+        System.out.println("a1:"+ address.hashCode());
+        System.out.println("a2:"+address1.hashCode());
+        System.out.println();
+
+        /*person.setFirstName("sandeep");
         person.setLastName("M");
         person.setAddress(address);
         System.out.println(person.getFirstName());
         System.out.println(person.getLastName());
         System.out.println(person.getClass().hashCode());
-        Person person1 = (Person) context.getBean("person1");
+
         person1.setFirstName("sandeep1");
         person1.setAddress(address1);
         System.out.println(person1.getFirstName());
@@ -35,7 +39,7 @@ public class Main{
         System.out.println(person1.getAddress().getZipCode());
 //        System.out.println(Person.getCountParent());
 //        System.out.println(Address.getCountChild());
-        System.out.println(person1.getClass().hashCode());
+        System.out.println(person1.getClass().hashCode());*/
 
         // singleton result
         /*sandeep

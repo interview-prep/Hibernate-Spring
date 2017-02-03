@@ -1,9 +1,6 @@
-package com.sandeep.interview.samples.entity;
+package com.sandeep.interview.samples.model;
 
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
 
 /**
  * Created by SMALA on 7/31/2016.
@@ -17,7 +14,7 @@ public class Person {
 
     public Person() {
         countParent++;
-        System.out.println(countParent);
+        System.out.println(this.getClass().getCanonicalName() +":" + countParent);
     }
 
     public Address getAddress() {
