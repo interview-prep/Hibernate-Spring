@@ -2,6 +2,11 @@ package com.sandeep.interview.samples.model;
 
 import org.springframework.context.ApplicationContext;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.ws.rs.Path;
+import java.util.concurrent.Future;
+
 /**
  * Created by SMALA on 7/31/2016.
  */
@@ -12,6 +17,7 @@ public class Person {
     private ApplicationContext context = null;
     private static int countParent = 0;
 
+    Future future;
     public Person() {
         countParent++;
         System.out.println(this.getClass().getCanonicalName() +":" + countParent);

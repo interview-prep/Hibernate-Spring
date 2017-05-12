@@ -4,14 +4,24 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="connection.driver_class">org.h2.Driver</property>
-        <property name="connection.url">jdbc:h2:~/hibernate;AUTOCOMMIT=OFF</property>
-        <property name="connection.username"></property>
-        <property name="connection.password"></property>
-        <property name="connection.pool_size">1</property>
-        <property name="dialect">org.hibernate.dialect.H2Dialect</property>
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <property name="connection.url">jdbc:postgresql://localhost/postgres</property>
+        <property name="connection.username">postgres</property>
+        <property name="connection.password">password</property>
+        <property name="connection.pool_size">4</property>
+        <property name="connection.autocommit">true</property>
+
+        <!--<property name="hibernate.cache.use_second_level_cache">true</property>-->
+        <!--<property name="hibernate.cache.use_query_cache">true</property>-->
+        <!--<property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>-->
+        <property name="hibernate.default_batch_fetch_size">2</property>
+        <property name="hibernate.jdbc.fetch_size">1</property>
+        <property name="hibernate.max_fetch_depth">5</property>
+
+        <property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
         <property name="hbm2ddl.auto">update</property>
+        <mapping class="com.sandeep.interview.samples.model.PersonEntity"/>
     </session-factory>
 </hibernate-configuration>
